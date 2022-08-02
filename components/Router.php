@@ -1,9 +1,18 @@
 <?php
 
-class Router {
-   
+/**
+ * Class Router
+ */
+class Router
+{
+    /**
+     * @var mixed
+     */
     private $routes;
-    
+
+    /**
+     * Router constructor.
+     */
     public function __construct()
     {
         $routesPath= ROOT.'/config/routes.php';
@@ -57,8 +66,5 @@ class Router {
                 }
             }
         }
-       
-                
-    
     }
 }
