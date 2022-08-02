@@ -1,0 +1,3 @@
+if ($result == false) {
+            die($db->errorInfo()[2]);
+        }
