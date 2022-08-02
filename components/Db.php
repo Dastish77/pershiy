@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Db dfxfghghfghffghfgh
+ * Class Db
  */
 class Db
 {
