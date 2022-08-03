@@ -1,5 +1,7 @@
 <?php
 
+include_once ROOT .  
+
 class ProductController
 {
     public function actionView($id)
