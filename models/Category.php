@@ -12,7 +12,8 @@ class Category
     {
         $db = Db::getConnection();
         $categoryList = array();
-        $result = $db->query('SELECT id, name FROM category ORDER BY sort_order ASC');
+        $result = $db->prepare('SELECT id, name FROM category ORDER BY sort_order ASC');
+        $result->execute();
 
         $i = 0;
         while ($row = $result->fetch()) {
