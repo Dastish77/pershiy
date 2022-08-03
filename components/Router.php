@@ -37,7 +37,8 @@ class Router
 
             //Сравнение $uriPattern and $uri
             if (preg_match("~$uriPattern~", $uri)){
-                              
+
+                $path = preg_replace("~$uriPattern~", $path, $uri);
                 //Определить какой контроллер
                 //и Актион обрабатівает запрос
                 $segments = explode('/', $path);
