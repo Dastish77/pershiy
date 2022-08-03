@@ -3,7 +3,7 @@
 include_once ROOT.'/models/Category.php';
 include_once ROOT.'/models/Product.php';
 
-class SiteController
+class CatalogController
 {
     
     public function actionIndex()
@@ -23,8 +23,8 @@ class SiteController
         $categories = array();
         $categories = Category::getCategoriesList();
         
-        $latestProducts = array();
-        $latestProducts = Product::getProductsListByCategory($categoryId);
+        $categoryProducts = array();
+        $categoryProducts = Product::getProductsListByCategory($categoryId);
         
         require_once(ROOT.'/views/catalog/category.php');
         
