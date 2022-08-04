@@ -2,7 +2,7 @@
 
 class Product
 {
-    const SHOW_BY_DEFAULT = 10;
+    const SHOW_BY_DEFAULT = 4;
     const STATUS_ENABLED = 1;
     const STATUS_DISABLED = 0;
     
@@ -30,15 +30,19 @@ class Product
     }
 
 
-    public static function getProductsListByCategory($categoryId = false)
+    public static function getProductsListByCategory($categoryId = false, $page = 1)
     {
         if ($categoryId) {
+            $page = intval($page);
+            $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
+         
             $db = Db::getConnection();
             $products = array();
-            $result = $db->prepare('SELECT id, name, price, image, is_new FROM product WHERE status = :status AND category_id = :category_id ORDER BY id DESC LIMIT :limit');
+            $result = $db->prepare('SELECT id, name, price, image, is_new FROM product WHERE status = :status AND category_id = :category_id ORDER BY id DESC LIMIT :limit OFFSET = :offset');
             $result->bindValue(':status', self::STATUS_ENABLED, $db::PARAM_INT);
             $result->bindValue(':category_id', $categoryId, $db::PARAM_INT);
             $result->bindValue(':limit', self::SHOW_BY_DEFAULT, $db::PARAM_INT);
+            $result->bindValue(':offset', self::SHOW_BY_DEFAULT, $db::PARAM_INT);
             $result->execute();
         
             $i = 0;
