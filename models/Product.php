@@ -38,7 +38,7 @@ class Product
          
             $db = Db::getConnection();
             $products = array();
-            $result = $db->prepare('SELECT id, name, price, image, is_new FROM product WHERE status = :status AND category_id = :category_id ORDER BY id DESC LIMIT :limit OFFSET = :offset');
+            $result = $db->prepare('SELECT id, name, price, image, is_new FROM product WHERE status = :status AND category_id = :category_id ORDER BY id DESC LIMIT :limit OFFSET :offset');
             $result->bindValue(':status', self::STATUS_ENABLED, $db::PARAM_INT);
             $result->bindValue(':category_id', $categoryId, $db::PARAM_INT);
             $result->bindValue(':limit', self::SHOW_BY_DEFAULT, $db::PARAM_INT);
@@ -69,6 +69,22 @@ class Product
             $result->setFetchMode(PDO::FETCH_ASSOC);
             
             return $result->fetch();
+        }
+    }
+    public static function getProductByIdCategory($id2)
+    {
+        if ($id2) {
+            $page = intval($page);
+         
+            $db = Db::getConnection();
+            $products = array();
+            $result = $db->prepare('SELECT `category`.`id`, `product`.`category_id` FROM `category` INNER JOIN `product` ON (`category`.`id` = `product`.`category_id`)');
+            $result->bindValue(':category_id', $categoryId, $db::PARAM_INT);
+            $result->execute();       
+                       
+    
+            
+            return $id2;
         }
     }
 }
