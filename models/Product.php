@@ -77,9 +77,9 @@ class Product
             $page = intval($page);
          
             $db = Db::getConnection();
-            $products = array();
-            $result = $db->prepare('SELECT `category`.`id`, `product`.`category_id` FROM `category` INNER JOIN `product` ON (`category`.`id` = `product`.`category_id`)');
-            $result->bindValue(':category_id', $categoryId, $db::PARAM_INT);
+            $id2 = array();
+            $result = $db->prepare('SELECT `product`.`id`, `product`.`name` FROM `product` INNER JOIN `category` ON (`product`.`category_id` = `category`.`id`) WHERE `category`.`id = :category_id');
+            $result->bindValue(':category_id', $id2, $db::PARAM_INT);
             $result->execute();       
                        
     

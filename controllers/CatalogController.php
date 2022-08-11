@@ -14,8 +14,8 @@ class CatalogController
         $latestProducts = array();
         $latestProducts = Product::getLatestProducts();
         
-        $productcategory = array();       
-        $productcategory = Product::getProductByIdCategory($id2); 
+        $id2 = array();       
+        $id2 = Product::getProductByIdCategory($id2); 
                 
         require_once(ROOT.'/views/catalog/index.php');
         
