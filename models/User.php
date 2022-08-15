@@ -6,7 +6,7 @@ class User
         
         $db = Db::getConnection();
         
-        $sql = 'INSERT INTO user (name, email, password) VALUES (:name, :email, :password)';
+        $sql = 'INSERT INTO `user` (`name`, `email`, `password`) VALUES (:name, :email, :password)';
         
         $result = $db->prepare($sql);
         $result->bindParam(':name', $name, PDO::PARAM_STR);

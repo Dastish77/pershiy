@@ -30,7 +30,7 @@ class UserController
                 $errors[] = "Пароль короткий";
             }
             
-            if (!User::checkEmailExists($email)) {
+            if (User::checkEmailExists($email)) {
                 $errors[] = "Такой Емайл существует";
             }
             
@@ -40,7 +40,7 @@ class UserController
             
         }
         
-        require_once(ROOT . '/views/user/register.php');
+        require_once(ROOT.'/views/user/register.php');
         
         return true;
     }
