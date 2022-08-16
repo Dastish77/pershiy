@@ -67,7 +67,7 @@ class UserController
             //Проверка ползователя на существование
             $userId = User::checkUserData($email, $password);
             
-            if(userId == false) {
+            if($userId == false) {
                 $errors[] = 'Неправильніе данніе для входа';
             } else {
                 User::auth($userId);

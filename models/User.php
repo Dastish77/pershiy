@@ -63,7 +63,7 @@ class User
         $result->bindParam(':password', $password, PDO::PARAM_STR);
         $result->execute();
         
-        $user = $$result->fetch();
+        $user = $result->fetch();
         if($user) {
             return $user['id'];
         }
