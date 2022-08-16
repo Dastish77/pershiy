@@ -8,7 +8,10 @@ return array(
     'category/([0-9]+)/page-([0-9]+)' => 'catalog/category/$1/$2',
     'category/([0-9]+)' => 'catalog/category/$1',
 
-    'user' => 'user/register',
+    'user/register' => 'user/register',
+    'user/login' => 'user/login',
+    
+    'cabinet' => 'cabinet/index',
     
     '' => 'site/index',
 );
