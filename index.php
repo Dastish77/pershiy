@@ -14,12 +14,13 @@ echo preg_replace($pattern, $replacement, $string);
 ini_set('display errors',1);
 error_reporting(E_ALL);
 
+session_start();
+        
 //2. Подключение файлов системі
 define('ROOT', dirname(__FILE__));
-// Проблема с автозагрузкой классов
-//require_once(ROOT.'/components/Autoload.php');
-require_once(ROOT.'/components/Router.php');
-require_once(ROOT.'/components/Db.php');
+
+require_once(ROOT.'/components/Autoload.php');
+
 
 
 

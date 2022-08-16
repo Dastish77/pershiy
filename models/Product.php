@@ -86,18 +86,16 @@ class Product
         return $row['count'];
     }
 
-    public static function getProductByIdCategory($id2)
+    public static function getProductByIdCategory($id)
     {
-        if ($id2) {
-            $page = intval($page);
+        if ($id) {
          
             $db = Db::getConnection();
-            $id2 = array();
             $result = $db->prepare('SELECT `product`.`id`, `product`.`name` FROM `product` INNER JOIN `category` ON (`product`.`category_id` = `category`.`id`) WHERE `category`.`id = :category_id');
-            $result->bindValue(':category_id', $id2, $db::PARAM_INT);
+            $result->bindValue(':category_id', $id, $db::PARAM_INT);
             $result->execute();       
                  
-            return $id2;
+            return $id;
         }
     }
 }

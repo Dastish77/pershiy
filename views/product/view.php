@@ -34,7 +34,7 @@
                             <img src="/template/images/product-details/new.jpg" class="newarrival" alt="" />
                             <h2><?php echo $product['name']; ?></h2>
                             <p>Код товара: <?php echo $product['code']; ?></p>
-                            <p>Категория: <?php echo $id2['name']; ?></p>
+                            <p>Категория: <?php echo $id3['name']; ?></p>
                             <span>
                                 <span>US $<?php echo $product['price']; ?></span>
                                 <label>Количество:</label>

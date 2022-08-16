@@ -1,7 +1,5 @@
 <?php
 
-include_once ROOT.'/models/Category.php'; 
-include_once ROOT.'/models/Product.php'; 
 
 class ProductController
 {
@@ -10,8 +8,8 @@ class ProductController
         $categories = array();
         $categories = Category::getCategoriesList();
         
-        $id2 = array();       
-        $id2 = Product::getProductByIdCategory($id2); 
+        $id3 = array();       
+        $id3 = Product::getProductByIdCategory($id); 
         
         $product = Product::getProductById($productId);        
                               

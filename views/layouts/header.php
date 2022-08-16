@@ -17,7 +17,7 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="/template/images/ico/favicon.ico">
+    <link rel="shortcut icon" href="/template/images/cart/one.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/template/images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/template/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/template/images/ico/apple-touch-icon-72-precomposed.png">
@@ -58,10 +58,13 @@
                     <div class="col-md-8 clearfix">
                         <div class="shop-menu clearfix pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="/cabinet"><i class="fa fa-user"></i> Аккаунт</a></li>
+                                <?php if (User::isGuest()): ?>
                                 <li><a href="/user/login"><i class="fa fa-star"></i> Вход</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <?php else: ?>
+                                <li><a href="/cabinet"><i class="fa fa-user"></i> Аккаунт</a></li>
+                                <li><a href="/user/logout"><i class="fa fa-unlock"></i> Віход</a></li>
+                                <?php endif; ?>
+                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
                                 <li><a href="/user"><i class="fa fa-lock"></i> Регистрация</a></li> 
                             </ul>
                         </div>
