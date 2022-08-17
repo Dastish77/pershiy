@@ -34,10 +34,11 @@ class Router
         
         //Проверить наличие такого запроса в routes.php
         foreach ($this->routes as $uriPattern => $path){
-
+           //    var_dump($uriPattern);
+          //  echo $uriPattern . '      ' . $uir . "<br>";
             //Сравнение $uriPattern and $uri
             if (preg_match("~$uriPattern~", $uri)){
-
+               
                 $path = preg_replace("~$uriPattern~", $path, $uri);
                 //Определить какой контроллер
                 //и Актион обрабатівает запрос
