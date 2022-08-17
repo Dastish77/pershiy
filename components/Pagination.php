@@ -66,7 +66,17 @@ class Pagination
     private function limits()
     {
         $left = $this->current_page - round($this->max / 2);
-        
+        $first = $left;
+        $last = $first + $this->max;
+        if ($first < 1) {
+            $first = 1;
+            $last = $first + $this->max;
+        }
+        if ($last > $this->amount) {
+            $last = $this->amount;
+        //    $first = $last - $this->max;
+        }
+        return [$first, $last];
     }
     private function amount()
     {

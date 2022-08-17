@@ -64,7 +64,11 @@
                                 <li><a href="/cabinet"><i class="fa fa-user"></i> Аккаунт</a></li>
                                 <li><a href="/user/logout"><i class="fa fa-unlock"></i> Віход</a></li>
                                 <?php endif; ?>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                                <li><a href="/cart">
+                                        <i class="fa fa-shopping-cart"></i> Корзина
+                                        <span id="cart-count">(<?php echo Cart::countItems();?>)</span>
+                                    </a>
+                                </li>
                                 <li><a href="/user"><i class="fa fa-lock"></i> Регистрация</a></li> 
                             </ul>
                         </div>
