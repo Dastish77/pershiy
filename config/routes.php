@@ -10,6 +10,9 @@ return array(
 
     'cart/add/([0-9]+)' => 'cart/add/$1',
     
+    'cart/addAjax/([0-9]+)' => 'cart/addAjax/$1',
+    'cart' => 'cart/index',
+    
     'user/login' => 'user/login',
     'user/logout' => 'user/logout',
     'user' => 'user/register',

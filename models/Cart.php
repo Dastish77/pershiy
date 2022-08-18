@@ -18,6 +18,7 @@ class Cart
         }
         $_SESSION['products'] = $productsInCart;
         //echo '<pre>';print_r($_SESSION['products']);die;
+        return self::countItems();
     }
     public static function countItems()
     {
@@ -30,5 +31,24 @@ class Cart
         } else {
             return 0;
         }
+    }
+    public static function getProducts()
+    {
+        if (isset($_SESSION['products'])) {
+            return $_SESSION['products'];
+        }
+        return false;
+    }
+    public static function getTotalPrice($products)
+    {
+        $productsInCart = self::getProducts();
+        
+        if($productsInCart) {
+            $total = 0;
+            foreach ($products as $item) {
+                $total += $item['price'] * $productsInCart[$item['id']];
+            }
+        }
+        return $total;
     }
 }
