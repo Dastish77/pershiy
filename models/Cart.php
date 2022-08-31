@@ -17,7 +17,6 @@ class Cart
             $productsInCart[$id] = 1;
         }
         $_SESSION['products'] = $productsInCart;
-        
         return self::countItems();
     }
     public static function countItems()
@@ -47,9 +46,8 @@ class Cart
     public static function getTotalPrice($products)
     {
         $productsInCart = self::getProducts();
-        
+        $total = 0;
         if($productsInCart) {
-            $total = 0;
             foreach ($products as $item) {
                 $total += $item['price'] * $productsInCart[$item['id']];
             }

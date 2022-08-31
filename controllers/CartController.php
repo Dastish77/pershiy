@@ -30,7 +30,7 @@ class CartController
             $totalPrice = Cart::getTotalPrice($products);
         }
         require_once(ROOT . '/views/cart/index.php');
-        
         return true;
+        
     }
 }
