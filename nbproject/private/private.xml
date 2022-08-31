@@ -5,9 +5,9 @@
         <group>
             <file>file:/C:/wamp64/www/models/Cart.php</file>
             <file>file:/C:/wamp64/www/views/layouts/header.php</file>
-            <file>file:/C:/wamp64/www/components/Pagination.php</file>
             <file>file:/C:/wamp64/www/controllers/CartController.php</file>
-            <file>file:/C:/wamp64/www/views/catalog/category.php</file>
+            <file>file:/C:/wamp64/www/config/routes.php</file>
+            <file>file:/C:/wamp64/www/views/cart/index.php</file>
         </group>
     </open-files>
 </project-private>
