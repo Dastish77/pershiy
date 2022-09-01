@@ -2,7 +2,6 @@
 
 class SiteController
 {
-    
     public function actionIndex()
     {
         $categories = array();
@@ -12,7 +11,6 @@ class SiteController
         $latestProducts = Product::getLatestProducts();
         
         require_once(ROOT.'/views/site/index.php');
-        
         return true;
     }
 }

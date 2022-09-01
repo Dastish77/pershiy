@@ -9,11 +9,27 @@ class CartController
         $referrer = $_SERVER['HTTP_REFERER'];
         header("Location: $referrer");
     }
+
+    public function actionDelete($id)
+    {
+        Cart::deleteProduct($id);
+
+        $referrer = $_SERVER['HTTP_REFERER'];
+        header("Location: /cart");
+    }
+
     public function actionAddAjax($id)
     {
-        echo Cart::addProduct($id);
+        echo '(' . Cart::addProduct($id) . ')';
         return true;
     }
+
+    public function actionDeleteAjax($id)
+    {
+        echo '(' . Cart::deleteProduct($id) . ')';
+        return true;
+    }
+
     public function actionIndex()
     {
         $categories = array();

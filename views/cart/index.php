@@ -1,27 +1,9 @@
-<?php include ROOT.'/views/layouts/header.php'; ?>
+<?php include ROOT . '/views/layouts/header.php'; ?>
 
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
-                <div class="left-sidebar">
-                    <h2>Каталог</h2>
-                    <div class="panel-group category-products"><!--category-productsr-->
-                        <?php foreach ($categories as $categoryItem): ?>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a href="/category/<?php echo $categoryItem['id'];?>">
-                                            <?php echo $categoryItem['name'];?>
-                                        </a>
-                                     </h4>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>   
-                    </div><!--/category-products-->
-                </div>
-            </div>
-                      
+            <?php include ROOT . '/views/layouts/categories.php'; ?>
             <div class="col-sm-9 padding-right">
                 <div class="features-items">
                     <h2 class="title text-center">Корзина</h2>
@@ -34,17 +16,23 @@
                                 <th>Название</th>
                                 <th>Стоимость, грн</th>
                                 <th>Количество, шт</th>
+                                <th></th>
                             </tr>
                             <?php foreach ($products as $product): ?>
                                 <tr>
                                     <td><?php echo $product['code'];?></td>
                                     <td>
                                         <a href="/product/<?php echo $product['id'];?>">
-                                        <?php echo $product['name'];?>
+                                            <?php echo $product['name'];?>
                                         </a>
                                     </td>
                                     <td><?php echo $product['price'];?></td>
                                     <td><?php echo $productsInCart[$product['id']];?></td>
+                                    <td>
+                                        <a href="/cart/delete/<?php echo $product['id'];?>" class="btn btn-danger">
+                                            <i class="fa fa-trash-o fa-" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                                 <tr>
@@ -62,4 +50,4 @@
     </div>
 </section>
 
-<?php include ROOT.'/views/layouts/footer.php'; ?>
+<?php include ROOT . '/views/layouts/footer.php'; ?>

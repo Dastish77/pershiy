@@ -22,6 +22,7 @@ class Category
             $i++;
           
         }
+
         return $categoryList;
     }
 }

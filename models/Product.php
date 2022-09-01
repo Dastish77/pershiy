@@ -17,8 +17,7 @@ class Product
         $result->execute();
         
         $i = 0;
-        while ($row = $result->fetch())
-        {
+        while ($row = $result->fetch()) {
             $productList[$i]['id'] = $row['id'];
             $productList[$i]['name'] = $row['name'];
             $productList[$i]['price'] = $row['price'];
@@ -28,7 +27,6 @@ class Product
         }
         return $productList;
     }
-
 
     public static function getProductsListByCategory($categoryId = false, $page = 1)
     {
@@ -46,8 +44,7 @@ class Product
             $result->execute();
         
             $i = 0;
-            while ($row = $result->fetch())
-            {
+            while ($row = $result->fetch()) {
                 $products[$i]['id'] = $row['id'];
                 $products[$i]['name'] = $row['name'];
                 $products[$i]['price'] = $row['price'];
@@ -58,13 +55,13 @@ class Product
            return $products;
         }
     }
+
     public static function getProductById($id)
     {
         $id = intval($id);
         
         if ($id) {
             $db = Db::getConnection();
-            
             $result = $db->query('SELECT * FROM product WHERE id=' . $id);
             $result->setFetchMode(PDO::FETCH_ASSOC);
             
@@ -89,23 +86,20 @@ class Product
     public static function getProductByIdCategory($id)
     {
         if ($id) {
-         
             $db = Db::getConnection();
-            $result = $db->prepare('SELECT `product`.`id`, `product`.`name` FROM `product` INNER JOIN `category` ON (`product`.`category_id` = `category`.`id`) WHERE `category`.`id = :category_id');
+            $result = $db->prepare('SELECT `product`.`id`, `product`.`name` FROM `product` INNER JOIN `category` ON (`product`.`category_id` = `category`.`id`) WHERE `category`.`id` = :category_id');
             $result->bindValue(':category_id', $id, $db::PARAM_INT);
             $result->execute();       
                  
             return $id;
         }
     }
+
     public static function getProductsByIds($idsArray)
     {
         $products = array();
-        
         $db = Db::getConnection();
-        
         $idsString = implode(',', $idsArray);
-        
         $sql = "SELECT * FROM product WHERE status='1' AND id IN ($idsString)";
         
         $result = $db->query($sql);

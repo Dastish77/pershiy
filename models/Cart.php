@@ -19,6 +19,12 @@ class Cart
         $_SESSION['products'] = $productsInCart;
         return self::countItems();
     }
+
+    public static function deleteProduct($id)
+    {
+        // TODO добавить возможность удаления продуктов с корзины
+    }
+
     public static function countItems()
     {
         if(isset($_SESSION['products'])) {
@@ -36,6 +42,7 @@ class Cart
             return 0;
         }
     }
+
     public static function getProducts()
     {
         if (isset($_SESSION['products'])) {
@@ -43,6 +50,7 @@ class Cart
         }
         return false;
     }
+
     public static function getTotalPrice($products)
     {
         $productsInCart = self::getProducts();

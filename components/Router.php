@@ -37,7 +37,7 @@ class Router
            //    var_dump($uriPattern);
           //  echo $uriPattern . '      ' . $uir . "<br>";
             //Сравнение $uriPattern and $uri
-            if (preg_match("~$uriPattern~", $uri)){
+            if (preg_match("~$uriPattern~", $uri)) {
                
                 $path = preg_replace("~$uriPattern~", $path, $uri);
                 //Определить какой контроллер
@@ -52,10 +52,9 @@ class Router
                 $parameters = $segments;
                 //Подключить файл класса контроллера
         
-                $controllerFile = ROOT . '/controllers/' .
-                        $controllerName . '.php';
+                $controllerFile = ROOT . '/controllers/' . $controllerName . '.php';
                 
-                if (file_exists($controllerFile)){
+                if (file_exists($controllerFile)) {
                     include_once($controllerFile);
                 }
                 //Создать обьект, візвать метод (т.е. Актион)
