@@ -20,13 +20,13 @@ class CartController
 
     public function actionAddAjax($id)
     {
-        echo '(' . Cart::addProduct($id) . ')';
+        echo Cart::addProduct($id);
         return true;
     }
 
     public function actionDeleteAjax($id)
     {
-        echo '(' . Cart::deleteProduct($id) . ')';
+        echo Cart::deleteProduct($id);
         return true;
     }
 

@@ -67,7 +67,7 @@
                                 <li>
                                     <a href="/cart">
                                         <i class="fa fa-shopping-cart"></i> Корзина
-                                        <span id="cart-count">(<?php echo Cart::countItems();?>)</span>
+                                        (<span id="cart-count"><?php echo Cart::countItems();?></span>)
                                     </a>
                                 </li>
                                 <li>
