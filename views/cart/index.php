@@ -40,6 +40,9 @@
                                     <td><?php echo $totalPrice; ?></td>
                                 </tr>
                         </table>
+                        <li>
+                            <a href="cart/checkout"><i class="fa fa-shopping-cart"></i> Оформить заказ</a>
+                        </li>
                     <?php else: ?>
                         <p>Корзина пуста</p>
                     <?php endif; ?>
